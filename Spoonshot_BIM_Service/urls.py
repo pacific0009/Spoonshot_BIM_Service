@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
-
+from .views import Health
 urlpatterns = [
+    path('/', Health.as_view()),
     path('admin/', admin.site.urls),
     path('inventory/', include('book_inventory.urls'))
 ]

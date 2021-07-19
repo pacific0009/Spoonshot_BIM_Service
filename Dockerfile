@@ -13,5 +13,5 @@ ADD . .
 
 ENV PYTHONPATH "${PYTHONPATH}:/usr/src/app"
 
-ENTRYPOINT ["bash", "/usr/src/app/docker-entrypoint.sh"]
+# ENTRYPOINT ["bash", "/usr/src/app/docker-entrypoint.sh"]
 
