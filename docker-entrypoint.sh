@@ -13,8 +13,5 @@
 mkdir -p /usr/src/app/static_files/
 
 echo "Starting Gunicorn"
-exec gunicorn Spoonshot_BIM_Service.wsgi:application \
-    --name bim \
-    --bind 0.0.0.0:8000 \
-    --workers 3 \
+exec gunicorn Spoonshot_BIM_Service.wsgi:application
 "$@"

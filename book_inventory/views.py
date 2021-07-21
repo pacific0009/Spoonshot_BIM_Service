@@ -114,10 +114,19 @@ class BookInventoryUpdate(View):
         
         return JsonResponse(data=data)
 
+class BookInventoryGoogle(View):
+    def get(self, request, google_id):
+        try:
+            book = BookInventory.objects.get(google_id=google_id)
+        except Exception as e:
+            return HttpResponseBadRequest(e)
+        return JsonResponse(book.to_dict())
+
 class GoogleBooks(View):
     def get(self, request):
-        q = request.GET.get('q')
-        url = f'{GOOGLE_BOOKS_BASEURL}?q={q}&api_key={GOOGLE_BOOKS_API_KEY}'
+        url = f'{GOOGLE_BOOKS_BASEURL}?api_key={GOOGLE_BOOKS_API_KEY}'
+        for item in request.GET:
+            url = url + '&{}={}'.format(item, request.GET.get(item))
         res = requests.get(url=url)
         return  JsonResponse(status=res.status_code, data=res.json())
 

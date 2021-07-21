@@ -127,4 +127,4 @@ STATIC_URL = '/static/'
 
 # Google books configs
 GOOGLE_BOOKS_BASEURL="https://www.googleapis.com/books/v1/volumes"
-GOOGLE_BOOKS_API_KEY="AIzaSyCS13mR0H_JYStbD_sNgDxI6E_bwMUgqZ0"
+GOOGLE_BOOKS_API_KEY="your api key" # Advised to get it from env variables
