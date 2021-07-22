@@ -1,0 +1,9 @@
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: gunicorn Spoonshot_BIM_Service.wsgi:application --name web --bind 0.0.0.0:80 --workers 3 
+release:
+  image: web
+  command:
+    - python manage.py collectstatic --noinput
